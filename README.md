@@ -8,9 +8,9 @@ L'analyse se fait en recherchant la valeur minimale et la valeur maximale pour c
 Exécution
 ---------
 Lancement du script:
-	$ python main.py foo1001.txt
+    $ python main.py foo1001.txt
 
-Voici un exemple de sortie:
+Exemple de sortie:
 ```
 32 notes analysees
 A* (4): [19.29 , 19.99]
@@ -28,6 +28,7 @@ F (3): [1.29 , 6.33]
 Dependances
 -----------
 
+Le script est développé avec Python 2.7 et utilies la dépendance suivante:
   * [PyPDF2](http://mstamy2.github.io/PyPDF2/)
 
 
