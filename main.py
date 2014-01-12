@@ -30,6 +30,7 @@ def display_thresholds(dictionary):
     for key, letter in dictionary.iteritems():
         cpt += letter.cpt
     print str(cpt) + " notes analysees"
+    print ""
 
     for key, letter in dictionary.iteritems():
         print key + " (" + str(letter.cpt) + "):" ,
