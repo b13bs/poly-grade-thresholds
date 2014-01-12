@@ -1,12 +1,11 @@
 #/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from PyPDF2 import PdfFileReader
 import sys
+import argparse
+from PyPDF2 import PdfFileReader
 from collections import OrderedDict
 from letters import Letter
-
-# TODO: argparse (file name, language?, etc.)
 
 
 def get_PDF_content(path):
@@ -26,13 +25,13 @@ def display_format(value):
     return str(format(value, '.2f'))
 
 
-def display_thresholds(dictionnary):
+def display_thresholds(dictionary):
     cpt = 0
-    for key, letter in dictionnary.iteritems():
+    for key, letter in dictionary.iteritems():
         cpt += letter.cpt
     print str(cpt) + " notes analysees"
 
-    for key, letter in dictionnary.iteritems():
+    for key, letter in dictionary.iteritems():
         print key + " (" + str(letter.cpt) + "):" ,
         if letter.cpt > 1:
             print "[" + display_format(letter.min) + " , " + display_format(letter.max) + "]"
@@ -42,13 +41,23 @@ def display_thresholds(dictionnary):
             print "-"
 
 
+def validate_input_file(file_name):
+    if file_name.split(".")[-1] != "txt" and file_name.split(".")[-1] != "pdf":
+        raise argparse.ArgumentTypeError("L'extension du fichier de resultats finaux doit etre '.txt' ou '.pdf'")
+    else:
+        return file_name
+
+
 def main(argv):
-    file_name = argv[1]
-    if file_name.split(".")[-1] == "txt":
-        with open(file_name, 'r') as content_file:
+    parser = argparse.ArgumentParser(description="Analyse des seuils de notes pour un cours")
+    parser.add_argument('filename', help="Fichier de resultats finaux", type=validate_input_file)
+    arg = parser.parse_args()
+
+    if arg.filename.split(".")[-1] == "txt":
+        with open(arg.filename, 'r') as content_file:
             file_content = content_file.read()
-    elif file_name.split(".")[-1] == "pdf":
-        file_content = get_PDF_content(file_name).encode("utf8", "ignore")
+    elif arg.filename.split(".")[-1] == "pdf":
+        file_content = get_PDF_content(arg.filename).encode("utf8", "ignore")
 
     dict_letters = OrderedDict()
     for letter_value in ['A*', 'A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F']:

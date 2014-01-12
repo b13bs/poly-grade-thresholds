@@ -1,7 +1,9 @@
 poly-seuils-notes
 =================
 
-Analyse du fichier des résultats d'un cours à l'École Polytechnique de Montréal pour déterminer les seuils de chaque note.
+Analyse du fichier des résultats d'un cours à l'École Polytechnique de Montréal pour déterminer les seuils de chaque note. Les fichiers d'entrées peuvent être de type *txt* ou *pdf*, soient les deux formats qui sont envoyés aux étudiants.
+
+L'analyse se fait en recherchant la valeur minimale et la valeur maximale pour chaque type de note.
 
 Exécution
 ---------
@@ -32,4 +34,4 @@ Dependances
 TODO
 ----
 
-  * Ajout de [argparse](https://code.google.com/p/argparse/)
+  * Modification du formattage de la sortie
