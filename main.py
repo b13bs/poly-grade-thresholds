@@ -3,6 +3,7 @@
 
 import sys
 import argparse
+import string
 from PyPDF2 import PdfFileReader
 from collections import OrderedDict
 from letters import Letter
@@ -33,7 +34,7 @@ def display_thresholds(dictionary):
     print ""
 
     for key, letter in dictionary.iteritems():
-        print key + " (" + str(letter.cpt) + "):" ,
+        print string.ljust(key,2),string.ljust(' (' + str(letter.cpt) + '):', 5) ,
         if letter.cpt > 1:
             print "[" + display_format(letter.min) + " , " + display_format(letter.max) + "]"
         elif letter.cpt == 1:
