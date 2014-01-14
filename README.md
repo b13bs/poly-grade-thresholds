@@ -8,6 +8,7 @@ L'analyse se fait en recherchant la valeur minimale et la valeur maximale pour c
 Exécution
 ---------
 Lancement du script:
+
     $ python main.py foo1001.txt
 
 Exemple de sortie:
