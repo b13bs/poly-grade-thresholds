@@ -36,4 +36,4 @@ Le script est développé avec Python 2.7 et utilies la dépendance suivante:
 TODO
 ----
 
-  * Modification du formattage de la sortie
+  * Gestion d'exception si le module PyPDF2 n'est pas présent
