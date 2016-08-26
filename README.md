@@ -1,4 +1,4 @@
-poly-seuils-notes
+poly-grade-thresholds
 =================
 
 One of my first project to learn Python scripting language. Parsing of the grades file for a class in Polytechnique Montreal, to extract the thresholds. For example, the threshold for the A grade is 16.81/20. The entry format is the file containing the grades, in either format used at this school which is *txt* or *pdf*. 
