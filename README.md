@@ -1,17 +1,18 @@
 poly-seuils-notes
 =================
 
-Analyse du fichier des résultats d'un cours à l'École Polytechnique de Montréal pour déterminer les seuils de chaque note. Les fichiers d'entrées peuvent être de type *txt* ou *pdf*, soient les deux formats qui sont envoyés aux étudiants.
+One of my first project to learn Python scripting language. Parsing of the grades file for a class in Polytechnique Montreal, to extract the thresholds. For example, the threshold for the A grade is 16.81/20. The entry format is the file containing the grades, in either format used at this school which is *txt* or *pdf*. 
 
-L'analyse se fait en recherchant la valeur minimale et la valeur maximale pour chaque type de note.
+The parsing is done by searching the lowest and highest value for each grade.
 
-Exécution
+
+Execution
 ---------
-Lancement du script:
-
+The script takes one argument which is the grade file
     $ python main.py foo1001.txt
 
-Exemple de sortie:
+
+Example output:
 ```
 32 notes analysees
 A* (4): [19.29 , 19.99]
@@ -24,16 +25,15 @@ D+ (3): [11.65 , 12.19]
 D (3): [10.72 , 11.38]
 F (3): [1.29 , 6.33]
 ```
+As the school is completely french-speaking, I did not translate the informations in the output.
 
-
-Dependances
+Dependecies
 -----------
 
-Le script est développé avec Python 2.7 et utilies la dépendance suivante:
+The script is developed with Python 2.7 and using the following module:
   * [PyPDF2](http://mstamy2.github.io/PyPDF2/)
 
 
 TODO
 ----
-
-  * Gestion d'exception si le module PyPDF2 n'est pas présent
+  * Exception handling if module not available
